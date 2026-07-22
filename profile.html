@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Skills · Skill Sharing</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <header class="topbar">
+    <a href="dashboard.html" class="brand">
+      <svg class="brand-mark" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="8" width="12" height="12" rx="4" transform="rotate(-12 8 14)" stroke="#2F6F62" stroke-width="2.4"/>
+        <rect x="16" y="10" width="12" height="12" rx="4" transform="rotate(12 22 16)" stroke="#7C4FA0" stroke-width="2.4"/>
+      </svg>
+      Skill Sharing
+    </a>
+    <nav class="topnav">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="browse.html">Browse</a>
+      <a href="profile.html" class="active">My Skills</a>
+      <a href="requests.html">Requests</a>
+      <span class="user-chip">Alice Test</span>
+      <a href="index.html">Log out</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div id="flash-slot"></div>
+
+    <div class="section-head"><h2>My profile</h2></div>
+    <div class="card" style="margin-bottom: 32px;">
+      <p style="font-weight:700; margin-bottom:4px;">Alice Test</p>
+      <p style="color:var(--ink-soft); font-size:0.86rem; margin-bottom:16px;">alice@example.com</p>
+      <form id="bio-form">
+        <div class="field">
+          <label for="bio">Short bio <span style="font-weight:400; text-transform:none;">(shown to other members)</span></label>
+          <textarea id="bio" name="bio" maxlength="280" placeholder="A sentence about who you are and what you're into.">Frontend dev by day, always learning something new on weekends.</textarea>
+        </div>
+        <button type="submit" class="btn btn-outline btn-sm">Save bio</button>
+      </form>
+    </div>
+
+    <div class="section-head"><h2>What you can offer</h2></div>
+    <div class="skills-grid">
+      <div class="skills-panel card">
+        <h3 class="teach">I can teach</h3>
+        <div class="chip-row" id="teach-chips">
+          <span class="chip chip-teach">Python<button type="button" class="chip-remove" title="Remove">&times;</button></span>
+          <span class="chip chip-teach">Git<button type="button" class="chip-remove" title="Remove">&times;</button></span>
+        </div>
+        <form class="add-skill-form" data-type="teach">
+          <select class="skill-select" onchange="this.nextElementSibling.style.display = this.value==='new' ? 'block' : 'none';">
+            <option value="">Choose a skill&hellip;</option>
+            <option>Python</option>
+            <option>JavaScript</option>
+            <option>Java</option>
+            <option>C++</option>
+            <option>PHP</option>
+            <option>CSS</option>
+            <option>HTML</option>
+            <option>SQL</option>
+            <option>DSA</option>
+            <option>React</option>
+            <option>Node.js</option>
+            <option>TypeScript</option>
+            <option>Git</option>
+            <option>MongoDB</option>
+            <option value="new">+ Add new skill&hellip;</option>
+          </select>
+          <input type="text" class="skill-name-input" placeholder="New skill name" style="display:none; max-width:160px;">
+          <button type="submit" class="btn btn-primary btn-sm">Add</button>
+        </form>
+      </div>
+
+      <div class="skills-panel card">
+        <h3 class="learn">I want to learn</h3>
+        <div class="chip-row" id="learn-chips">
+          <span class="chip chip-learn">React<button type="button" class="chip-remove" title="Remove">&times;</button></span>
+          <span class="chip chip-learn">DSA<button type="button" class="chip-remove" title="Remove">&times;</button></span>
+        </div>
+        <form class="add-skill-form" data-type="learn">
+          <select class="skill-select" onchange="this.nextElementSibling.style.display = this.value==='new' ? 'block' : 'none';">
+            <option value="">Choose a skill&hellip;</option>
+            <option>Python</option>
+            <option>JavaScript</option>
+            <option>Java</option>
+            <option>C++</option>
+            <option>PHP</option>
+            <option>CSS</option>
+            <option>HTML</option>
+            <option>SQL</option>
+            <option>DSA</option>
+            <option>React</option>
+            <option>Node.js</option>
+            <option>TypeScript</option>
+            <option>Git</option>
+            <option>MongoDB</option>
+            <option value="new">+ Add new skill&hellip;</option>
+          </select>
+          <input type="text" class="skill-name-input" placeholder="New skill name" style="display:none; max-width:160px;">
+          <button type="submit" class="btn btn-primary btn-sm">Add</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="section-head"><h2>Ready to trade</h2></div>
+    <a href="browse.html" class="btn btn-gold">Browse members &rarr;</a>
+  </main>
+
+  <footer class="site-footer">
+    Skill Sharing &mdash; trade what you know for what you want to learn.
+  </footer>
+</div>
+
+<script>
+  // Static demo: skills live only in the DOM/JS for this page load,
+  // there is no server to persist them to.
+  function flash(message) {
+    const slot = document.getElementById('flash-slot');
+    slot.innerHTML = '<div class="flash flash-success">' + message + '</div>';
+    setTimeout(() => { slot.innerHTML = ''; }, 2500);
+  }
+
+  function makeChip(name, type) {
+    const chip = document.createElement('span');
+    chip.className = 'chip chip-' + type;
+    chip.textContent = name;
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'chip-remove';
+    btn.title = 'Remove';
+    btn.innerHTML = '&times;';
+    btn.addEventListener('click', function () {
+      if (confirm('Remove this skill?')) chip.remove();
+    });
+    chip.appendChild(btn);
+    return chip;
+  }
+
+  document.querySelectorAll('.chip-remove').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      if (confirm('Remove this skill?')) btn.closest('.chip').remove();
+    });
+  });
+
+  document.querySelectorAll('.add-skill-form').forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const type = form.dataset.type;
+      const select = form.querySelector('.skill-select');
+      const nameInput = form.querySelector('.skill-name-input');
+      let name = select.value;
+      if (name === 'new') name = nameInput.value.trim();
+      if (!name) { flash('Please choose or type a skill name.'); return; }
+
+      document.getElementById(type + '-chips').appendChild(makeChip(name, type));
+      select.value = '';
+      nameInput.value = '';
+      nameInput.style.display = 'none';
+      flash('Skill added to your ' + type + ' list.');
+    });
+  });
+
+  document.getElementById('bio-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    flash('Bio updated.');
+  });
+</script>
+</body>
+</html>
