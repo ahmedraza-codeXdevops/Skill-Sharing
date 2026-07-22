@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Requests · Skill Sharing</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <header class="topbar">
+    <a href="dashboard.html" class="brand">
+      <svg class="brand-mark" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="8" width="12" height="12" rx="4" transform="rotate(-12 8 14)" stroke="#2F6F62" stroke-width="2.4"/>
+        <rect x="16" y="10" width="12" height="12" rx="4" transform="rotate(12 22 16)" stroke="#7C4FA0" stroke-width="2.4"/>
+      </svg>
+      Skill Sharing
+    </a>
+    <nav class="topnav">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="browse.html">Browse</a>
+      <a href="profile.html">My Skills</a>
+      <a href="requests.html" class="active">Requests</a>
+      <span class="user-chip">Alice Test</span>
+      <a href="index.html">Log out</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div id="flash-slot"></div>
+    <div class="section-head"><h2>Trade requests</h2></div>
+
+    <div class="tabs">
+      <a href="#" class="tab-link active" data-tab="incoming">Incoming</a>
+      <a href="#" class="tab-link" data-tab="outgoing">Sent by me</a>
+    </div>
+
+    <div id="incoming-panel">
+      <div class="request-row" data-status="pending">
+        <div class="request-info">
+          <div class="who"><span class="avatar avatar-sm avatar-b" style="margin-right:8px; vertical-align:middle;">PS</span>Priya Shah wants to trade with you</div>
+          <div class="chain-link">
+            <span class="chip chip-teach">PHP</span>
+            <svg width="22" height="16" viewBox="0 0 26 18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="4" width="10" height="10" rx="5" stroke="currentColor" stroke-width="2"/><rect x="15" y="4" width="10" height="10" rx="5" stroke="currentColor" stroke-width="2"/></svg>
+            <span class="chip chip-learn">SQL</span>
+          </div>
+          <div class="msg">&ldquo;Would love to trade &mdash; happy to work around your schedule!&rdquo;</div>
+        </div>
+        <div style="display:flex; align-items:center; gap:12px;">
+          <span class="status-badge status-pending">pending</span>
+          <div class="request-actions">
+            <button type="button" class="btn btn-primary btn-sm accept-btn">Accept</button>
+            <button type="button" class="btn btn-danger btn-sm decline-btn">Decline</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="request-row" data-status="accepted">
+        <div class="request-info">
+          <div class="who"><span class="avatar avatar-sm avatar-a" style="margin-right:8px; vertical-align:middle;">BC</span>Bob Coder wants to trade with you</div>
+          <div class="chain-link">
+            <span class="chip chip-teach">React</span>
+            <svg width="22" height="16" viewBox="0 0 26 18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="4" width="10" height="10" rx="5" stroke="currentColor" stroke-width="2"/><rect x="15" y="4" width="10" height="10" rx="5" stroke="currentColor" stroke-width="2"/></svg>
+            <span class="chip chip-learn">Python</span>
+          </div>
+        </div>
+        <span class="status-badge status-accepted">accepted</span>
+      </div>
+    </div>
+
+    <div id="outgoing-panel" style="display:none;">
+      <div class="request-row" data-status="pending">
+        <div class="request-info">
+          <div class="who"><span class="avatar avatar-sm avatar-d" style="margin-right:8px; vertical-align:middle;">MY</span>You proposed a trade to Marcus Yeo</div>
+          <div class="chain-link">
+            <span class="chip chip-teach">CSS</span>
+            <svg width="22" height="16" viewBox="0 0 26 18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="4" width="10" height="10" rx="5" stroke="currentColor" stroke-width="2"/><rect x="15" y="4" width="10" height="10" rx="5" stroke="currentColor" stroke-width="2"/></svg>
+            <span class="chip chip-learn">DSA</span>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:12px;">
+          <span class="status-badge status-pending">pending</span>
+          <div class="request-actions">
+            <button type="button" class="btn btn-outline btn-sm cancel-btn">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="request-row" data-status="declined">
+        <div class="request-info">
+          <div class="who"><span class="avatar avatar-sm avatar-e" style="margin-right:8px; vertical-align:middle;">DR</span>You proposed a trade to Dana Ruiz</div>
+          <div class="chain-link">
+            <span class="chip chip-teach">Git</span>
+            <svg width="22" height="16" viewBox="0 0 26 18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="4" width="10" height="10" rx="5" stroke="currentColor" stroke-width="2"/><rect x="15" y="4" width="10" height="10" rx="5" stroke="currentColor" stroke-width="2"/></svg>
+            <span class="chip chip-learn">C++</span>
+          </div>
+        </div>
+        <span class="status-badge status-declined">declined</span>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    Skill Sharing &mdash; trade what you know for what you want to learn.
+  </footer>
+</div>
+
+<script>
+  function flash(message) {
+    const slot = document.getElementById('flash-slot');
+    slot.innerHTML = '<div class="flash flash-success">' + message + '</div>';
+    setTimeout(() => { slot.innerHTML = ''; }, 2500);
+  }
+
+  document.querySelectorAll('.tab-link').forEach(function (tab) {
+    tab.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelectorAll('.tab-link').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const target = tab.dataset.tab;
+      document.getElementById('incoming-panel').style.display = target === 'incoming' ? '' : 'none';
+      document.getElementById('outgoing-panel').style.display = target === 'outgoing' ? '' : 'none';
+    });
+  });
+
+  function updateRow(btn, status, message) {
+    const row = btn.closest('.request-row');
+    row.dataset.status = status;
+    row.querySelector('.status-badge').className = 'status-badge status-' + status;
+    row.querySelector('.status-badge').textContent = status;
+    const actions = row.querySelector('.request-actions');
+    if (actions) actions.remove();
+    flash(message);
+  }
+
+  document.querySelectorAll('.accept-btn').forEach(btn => btn.addEventListener('click', function () {
+    updateRow(btn, 'accepted', 'Trade accepted! You can now coordinate directly with them.');
+  }));
+  document.querySelectorAll('.decline-btn').forEach(btn => btn.addEventListener('click', function () {
+    updateRow(btn, 'declined', 'Request declined.');
+  }));
+  document.querySelectorAll('.cancel-btn').forEach(btn => btn.addEventListener('click', function () {
+    updateRow(btn, 'cancelled', 'Request cancelled.');
+  }));
+</script>
+</body>
+</html>
