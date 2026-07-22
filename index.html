@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skill Sharing — trade code skills, not cash</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <header class="topbar">
+    <a href="index.html" class="brand">
+      <svg class="brand-mark" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="8" width="12" height="12" rx="4" transform="rotate(-12 8 14)" stroke="#2F6F62" stroke-width="2.4"/>
+        <rect x="16" y="10" width="12" height="12" rx="4" transform="rotate(12 22 16)" stroke="#7C4FA0" stroke-width="2.4"/>
+      </svg>
+      Skill Sharing
+    </a>
+    <nav class="topnav">
+      <a href="index.html" class="active">Home</a>
+      <a href="login.html">Log in</a>
+      <a href="register.html" class="btn btn-gold btn-sm">Join free</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="eyebrow"><span class="dot"></span>No money changes hands</div>
+      <h1>You teach <em>Python</em>. They teach <em>React</em>. Everyone levels up.</h1>
+      <p class="lede">Skill Sharing is a ledger for trading tech skills. List what you can teach &mdash; Java, PHP, CSS, DSA, whatever &mdash; say what you want to learn, and send a request when you find a match.</p>
+      <div class="hero-actions">
+        <a href="register.html" class="btn btn-gold">Open a free ledger &rarr;</a>
+        <a href="login.html" class="btn btn-outline">Log in</a>
+      </div>
+    </section>
+
+    <div class="stats-row">
+      <div class="stat"><div class="num">1,240+</div><div class="label">Members trading</div></div>
+      <div class="stat"><div class="num">3,600+</div><div class="label">Trades completed</div></div>
+      <div class="stat"><div class="num">30+</div><div class="label">Skills on the ledger</div></div>
+    </div>
+
+    <div class="card" style="margin-bottom:48px;">
+      <div class="chain-link">
+        <span class="chip chip-teach">TEACH · Python</span>
+        <svg width="26" height="18" viewBox="0 0 26 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="4" width="10" height="10" rx="5" stroke="currentColor" stroke-width="2"/>
+          <rect x="15" y="4" width="10" height="10" rx="5" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        <span class="chip chip-learn">LEARN · React</span>
+      </div>
+      <p style="color:var(--ink-soft); font-size:0.9rem; margin: 14px 0 0;">Every trade is a link between two ledger entries &mdash; something you can offer, matched against something you want.</p>
+    </div>
+
+    <div class="section-head"><h2>Popular skills on the ledger</h2></div>
+    <div class="chip-row" style="margin-bottom:48px;">
+      <span class="chip chip-teach">Python</span>
+      <span class="chip chip-learn">JavaScript</span>
+      <span class="chip chip-teach">Java</span>
+      <span class="chip chip-learn">PHP</span>
+      <span class="chip chip-teach">CSS</span>
+      <span class="chip chip-learn">HTML</span>
+      <span class="chip chip-teach">DSA</span>
+      <span class="chip chip-learn">SQL</span>
+      <span class="chip chip-teach">React</span>
+      <span class="chip chip-learn">Node.js</span>
+      <span class="chip chip-teach">Git</span>
+      <span class="chip chip-learn">C++</span>
+    </div>
+
+    <div class="section-head"><h2>How a trade works</h2></div>
+    <div class="skills-grid" style="grid-template-columns: repeat(4, 1fr); gap:16px;">
+      <div class="card">
+        <div class="mono" style="color:var(--gold-dark); font-size:0.78rem; margin-bottom:8px;">STEP 1</div>
+        <h3 class="teach" style="font-size:1.05rem;">List your skills</h3>
+        <p style="color:var(--ink-soft); font-size:0.88rem;">Add the languages and tools you can teach, plus what you're hoping to learn.</p>
+      </div>
+      <div class="card">
+        <div class="mono" style="color:var(--gold-dark); font-size:0.78rem; margin-bottom:8px;">STEP 2</div>
+        <h3 class="learn" style="font-size:1.05rem;">Browse the ledger</h3>
+        <p style="color:var(--ink-soft); font-size:0.88rem;">Search members by skill and find someone whose "teach" matches your "learn."</p>
+      </div>
+      <div class="card">
+        <div class="mono" style="color:var(--gold-dark); font-size:0.78rem; margin-bottom:8px;">STEP 3</div>
+        <h3 class="teach" style="font-size:1.05rem;">Propose a trade</h3>
+        <p style="color:var(--ink-soft); font-size:0.88rem;">Offer one of your skills in exchange for one of theirs, with a short note.</p>
+      </div>
+      <div class="card">
+        <div class="mono" style="color:var(--gold-dark); font-size:0.78rem; margin-bottom:8px;">STEP 4</div>
+        <h3 class="learn" style="font-size:1.05rem;">Accept &amp; connect</h3>
+        <p style="color:var(--ink-soft); font-size:0.88rem;">Once accepted, coordinate directly &mdash; a call, a pairing session, a shared repo.</p>
+      </div>
+    </div>
+
+    <div class="section-head"><h2>Members trading right now</h2><a href="browse.html" class="mono" style="font-size:0.82rem;">Browse all &rarr;</a></div>
+    <div class="member-grid" style="margin-bottom:20px;">
+      <div class="member-card">
+        <div class="member-head">
+          <span class="avatar avatar-a">BC</span>
+          <div>
+            <div class="member-name">Bob Coder</div>
+            <div class="member-bio" style="min-height:auto;">Frontend &amp; design systems</div>
+          </div>
+        </div>
+        <div class="chip-block"><label>Teaches</label><div class="chip-row"><span class="chip chip-teach">CSS</span><span class="chip chip-teach">React</span></div></div>
+      </div>
+      <div class="member-card">
+        <div class="member-head">
+          <span class="avatar avatar-b">PS</span>
+          <div>
+            <div class="member-name">Priya Shah</div>
+            <div class="member-bio" style="min-height:auto;">Backend &amp; databases</div>
+          </div>
+        </div>
+        <div class="chip-block"><label>Teaches</label><div class="chip-row"><span class="chip chip-teach">PHP</span><span class="chip chip-teach">SQL</span></div></div>
+      </div>
+      <div class="member-card">
+        <div class="member-head">
+          <span class="avatar avatar-d">MY</span>
+          <div>
+            <div class="member-name">Marcus Yeo</div>
+            <div class="member-bio" style="min-height:auto;">Algorithms enthusiast</div>
+          </div>
+        </div>
+        <div class="chip-block"><label>Teaches</label><div class="chip-row"><span class="chip chip-teach">DSA</span><span class="chip chip-teach">Java</span></div></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    Skill Sharing &mdash; trade what you know for what you want to learn.
+  </footer>
+</div>
+</body>
+</html>
