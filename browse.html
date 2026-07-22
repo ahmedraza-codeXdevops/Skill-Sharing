@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Browse members · Skill Sharing</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <header class="topbar">
+    <a href="dashboard.html" class="brand">
+      <svg class="brand-mark" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="8" width="12" height="12" rx="4" transform="rotate(-12 8 14)" stroke="#2F6F62" stroke-width="2.4"/>
+        <rect x="16" y="10" width="12" height="12" rx="4" transform="rotate(12 22 16)" stroke="#7C4FA0" stroke-width="2.4"/>
+      </svg>
+      Skill Sharing
+    </a>
+    <nav class="topnav">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="browse.html" class="active">Browse</a>
+      <a href="profile.html">My Skills</a>
+      <a href="requests.html">Requests</a>
+      <span class="user-chip">Alice Test</span>
+      <a href="index.html">Log out</a>
+    </nav>
+  </header>
+
+  <main class="container container-wide">
+    <div id="flash-slot"></div>
+
+    <div class="section-head"><h2>Browse the ledger</h2><span class="count">4 members</span></div>
+
+    <form class="filter-bar" onsubmit="return false;">
+      <input type="text" placeholder="Search by name&hellip;">
+      <select onchange="filterBySkill(this.value)">
+        <option value="">All skills</option>
+        <option>Python</option>
+        <option>JavaScript</option>
+        <option>Java</option>
+        <option>C++</option>
+        <option>PHP</option>
+        <option>CSS</option>
+        <option>HTML</option>
+        <option>SQL</option>
+        <option>DSA</option>
+        <option>React</option>
+        <option>Node.js</option>
+        <option>Git</option>
+      </select>
+      <button type="button" class="btn btn-outline btn-sm" onclick="document.querySelector('.filter-bar input').value=''; filterBySkill('')">Clear</button>
+    </form>
+
+    <div class="member-grid" id="member-grid">
+      <div class="member-card" data-skills="CSS, React">
+        <div class="member-head">
+          <span class="avatar avatar-a">BC</span>
+          <div>
+            <div class="member-name">Bob Coder</div>
+            <div class="member-bio" style="min-height:auto;">Frontend dev, loves clean CSS and component libraries.</div>
+          </div>
+        </div>
+        <div class="chip-block">
+          <label>Teaches</label>
+          <div class="chip-row"><span class="chip chip-teach">CSS</span><span class="chip chip-teach">React</span></div>
+        </div>
+        <div class="chip-block">
+          <label>Wants to learn</label>
+          <div class="chip-row"><span class="chip chip-learn">Python</span></div>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm propose-btn"
+          data-name="Bob Coder" data-teach="CSS,React">Propose trade</button>
+      </div>
+
+      <div class="member-card" data-skills="PHP, SQL">
+        <div class="member-head">
+          <span class="avatar avatar-b">PS</span>
+          <div>
+            <div class="member-name">Priya Shah</div>
+            <div class="member-bio" style="min-height:auto;">Backend engineer, five years deep in PHP and databases.</div>
+          </div>
+        </div>
+        <div class="chip-block">
+          <label>Teaches</label>
+          <div class="chip-row"><span class="chip chip-teach">PHP</span><span class="chip chip-teach">SQL</span></div>
+        </div>
+        <div class="chip-block">
+          <label>Wants to learn</label>
+          <div class="chip-row"><span class="chip chip-learn">JavaScript</span></div>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm propose-btn"
+          data-name="Priya Shah" data-teach="PHP,SQL">Propose trade</button>
+      </div>
+
+      <div class="member-card" data-skills="DSA, Java">
+        <div class="member-head">
+          <span class="avatar avatar-d">MY</span>
+          <div>
+            <div class="member-name">Marcus Yeo</div>
+            <div class="member-bio" style="min-height:auto;">Competitive programmer, happy to walk through DSA problems.</div>
+          </div>
+        </div>
+        <div class="chip-block">
+          <label>Teaches</label>
+          <div class="chip-row"><span class="chip chip-teach">DSA</span><span class="chip chip-teach">Java</span></div>
+        </div>
+        <div class="chip-block">
+          <label>Wants to learn</label>
+          <div class="chip-row"><span class="chip chip-learn">Git</span><span class="chip chip-learn">Node.js</span></div>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm propose-btn"
+          data-name="Marcus Yeo" data-teach="DSA,Java">Propose trade</button>
+      </div>
+
+      <div class="member-card" data-skills="Python, C++">
+        <div class="member-head">
+          <span class="avatar avatar-e">DR</span>
+          <div>
+            <div class="member-name">Dana Ruiz</div>
+            <div class="member-bio" style="min-height:auto;">Data engineer, Python by day and C++ for fun.</div>
+          </div>
+        </div>
+        <div class="chip-block">
+          <label>Teaches</label>
+          <div class="chip-row"><span class="chip chip-teach">Python</span><span class="chip chip-teach">C++</span></div>
+        </div>
+        <div class="chip-block">
+          <label>Wants to learn</label>
+          <div class="chip-row"><span class="chip chip-learn">HTML</span></div>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm propose-btn"
+          data-name="Dana Ruiz" data-teach="Python,C++">Propose trade</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    Skill Sharing &mdash; trade what you know for what you want to learn.
+  </footer>
+</div>
+
+<!-- Propose-trade modal -->
+<div class="modal-overlay" id="propose-modal">
+  <div class="modal">
+    <h3>Propose a trade with <span id="modal-receiver-name"></span></h3>
+    <p class="sub">Offer one of your skills in exchange for one of theirs.</p>
+    <form id="propose-form">
+      <div class="field">
+        <label for="offered_skill">You offer</label>
+        <select id="offered_skill" required>
+          <option>Python</option>
+          <option>Git</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="requested_skill">You want to learn</label>
+        <select id="requested_skill" required></select>
+      </div>
+      <div class="field">
+        <label for="message">Note <span style="font-weight:400; text-transform:none;">(optional)</span></label>
+        <textarea id="message" maxlength="280" placeholder="Say hello and suggest a time to connect."></textarea>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-outline" id="modal-cancel">Cancel</button>
+        <button type="submit" class="btn btn-gold">Send request</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  function flash(message) {
+    const slot = document.getElementById('flash-slot');
+    slot.innerHTML = '<div class="flash flash-success">' + message + '</div>';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(() => { slot.innerHTML = ''; }, 3000);
+  }
+
+  function filterBySkill(skill) {
+    document.querySelectorAll('#member-grid .member-card').forEach(function (card) {
+      const skills = card.getAttribute('data-skills');
+      card.style.display = (!skill || skills.includes(skill)) ? '' : 'none';
+    });
+  }
+
+  const overlay = document.getElementById('propose-modal');
+  const receiverNameSpan = document.getElementById('modal-receiver-name');
+  const requestedSelect = document.getElementById('requested_skill');
+  let currentReceiver = '';
+
+  function openModal(name, teachSkillsCsv) {
+    currentReceiver = name;
+    receiverNameSpan.textContent = name;
+    requestedSelect.innerHTML = '';
+    teachSkillsCsv.split(',').forEach(function (skill) {
+      const opt = document.createElement('option');
+      opt.textContent = skill;
+      requestedSelect.appendChild(opt);
+    });
+    overlay.classList.add('open');
+  }
+  function closeModal() { overlay.classList.remove('open'); }
+
+  document.querySelectorAll('.propose-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      openModal(btn.getAttribute('data-name'), btn.getAttribute('data-teach'));
+    });
+  });
+
+  document.getElementById('modal-cancel').addEventListener('click', closeModal);
+  overlay.addEventListener('click', function (e) { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
+
+  document.getElementById('propose-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    closeModal();
+    flash('Trade request sent to ' + currentReceiver + '.');
+  });
+</script>
+</body>
+</html>
