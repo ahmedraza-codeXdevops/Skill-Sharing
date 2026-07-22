@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard · Skill Sharing</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <header class="topbar">
+    <a href="dashboard.html" class="brand">
+      <svg class="brand-mark" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="8" width="12" height="12" rx="4" transform="rotate(-12 8 14)" stroke="#2F6F62" stroke-width="2.4"/>
+        <rect x="16" y="10" width="12" height="12" rx="4" transform="rotate(12 22 16)" stroke="#7C4FA0" stroke-width="2.4"/>
+      </svg>
+      Skill Sharing
+    </a>
+    <nav class="topnav">
+      <a href="dashboard.html" class="active">Dashboard</a>
+      <a href="browse.html">Browse</a>
+      <a href="profile.html">My Skills</a>
+      <a href="requests.html">Requests</a>
+      <span class="user-chip">Alice Test</span>
+      <a href="index.html">Log out</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="section-head"><h2>Welcome back, Alice Test</h2></div>
+
+    <div class="skills-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 8px;">
+      <div class="card"><div class="mono" style="color:var(--ink-soft); font-size:0.75rem;">TEACHING</div><div class="display" style="font-size:1.8rem;">2</div></div>
+      <div class="card"><div class="mono" style="color:var(--ink-soft); font-size:0.75rem;">LEARNING</div><div class="display" style="font-size:1.8rem;">2</div></div>
+      <div class="card"><div class="mono" style="color:var(--ink-soft); font-size:0.75rem;">PENDING REQUESTS</div><div class="display" style="font-size:1.8rem;">1</div></div>
+      <div class="card"><div class="mono" style="color:var(--ink-soft); font-size:0.75rem;">ACTIVE TRADES</div><div class="display" style="font-size:1.8rem;">1</div></div>
+    </div>
+
+    <div class="section-head">
+      <h2>Recent activity</h2>
+      <a href="requests.html" class="mono" style="font-size:0.82rem;">View all &rarr;</a>
+    </div>
+
+    <div class="request-row">
+      <div class="request-info">
+        <div class="who"><span class="avatar avatar-sm avatar-a" style="margin-right:8px; vertical-align:middle;">BC</span>You &rarr; Bob Coder</div>
+        <div class="chain-link">
+          <span class="chip chip-teach">Python</span>
+          <svg width="22" height="16" viewBox="0 0 26 18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="4" width="10" height="10" rx="5" stroke="currentColor" stroke-width="2"/><rect x="15" y="4" width="10" height="10" rx="5" stroke="currentColor" stroke-width="2"/></svg>
+          <span class="chip chip-learn">React</span>
+        </div>
+      </div>
+      <span class="status-badge status-accepted">accepted</span>
+    </div>
+
+    <div class="request-row">
+      <div class="request-info">
+        <div class="who"><span class="avatar avatar-sm avatar-b" style="margin-right:8px; vertical-align:middle;">PS</span>Priya Shah &rarr; you</div>
+        <div class="chain-link">
+          <span class="chip chip-teach">PHP</span>
+          <svg width="22" height="16" viewBox="0 0 26 18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="4" width="10" height="10" rx="5" stroke="currentColor" stroke-width="2"/><rect x="15" y="4" width="10" height="10" rx="5" stroke="currentColor" stroke-width="2"/></svg>
+          <span class="chip chip-learn">SQL</span>
+        </div>
+      </div>
+      <span class="status-badge status-pending">pending</span>
+    </div>
+
+    <div class="request-row">
+      <div class="request-info">
+        <div class="who"><span class="avatar avatar-sm avatar-d" style="margin-right:8px; vertical-align:middle;">MY</span>You &rarr; Marcus Yeo</div>
+        <div class="chain-link">
+          <span class="chip chip-teach">CSS</span>
+          <svg width="22" height="16" viewBox="0 0 26 18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="4" width="10" height="10" rx="5" stroke="currentColor" stroke-width="2"/><rect x="15" y="4" width="10" height="10" rx="5" stroke="currentColor" stroke-width="2"/></svg>
+          <span class="chip chip-learn">DSA</span>
+        </div>
+      </div>
+      <span class="status-badge status-declined">declined</span>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    Skill Sharing &mdash; trade what you know for what you want to learn.
+  </footer>
+</div>
+</body>
+</html>
