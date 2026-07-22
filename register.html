@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join · Skill Sharing</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <header class="topbar">
+    <a href="index.html" class="brand">
+      <svg class="brand-mark" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="8" width="12" height="12" rx="4" transform="rotate(-12 8 14)" stroke="#2F6F62" stroke-width="2.4"/>
+        <rect x="16" y="10" width="12" height="12" rx="4" transform="rotate(12 22 16)" stroke="#7C4FA0" stroke-width="2.4"/>
+      </svg>
+      Skill Sharing
+    </a>
+    <nav class="topnav">
+      <a href="index.html">Home</a>
+      <a href="login.html">Log in</a>
+      <a href="register.html" class="btn btn-gold btn-sm">Join free</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="auth-card">
+      <h2>Open a ledger</h2>
+      <p class="sub">Create an account, list what you can teach, and find your first trade.</p>
+
+      <form id="register-form" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required maxlength="100">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required maxlength="150">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required minlength="8">
+          </div>
+          <div class="field">
+            <label for="confirm_password">Confirm</label>
+            <input type="password" id="confirm_password" name="confirm_password" required minlength="8">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Create account</button>
+      </form>
+      <p class="auth-switch">Already trading? <a href="login.html">Log in</a></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    Skill Sharing &mdash; trade what you know for what you want to learn.
+  </footer>
+</div>
+<script>
+  // Static demo: no backend, so this just simulates the redirect a real
+  // registration would do after validating the form.
+  document.getElementById('register-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const pw = document.getElementById('password').value;
+    const confirm = document.getElementById('confirm_password').value;
+    if (pw !== confirm) {
+      alert('Passwords do not match.');
+      return;
+    }
+    if (pw.length < 8) {
+      alert('Password must be at least 8 characters.');
+      return;
+    }
+    window.location.href = 'profile.html';
+  });
+</script>
+</body>
+</html>
